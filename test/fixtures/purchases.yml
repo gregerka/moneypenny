@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sum: 1.5
+  purchase_at: 2013-03-23 11:57:18
+  user_id: 1
+  category_id: 1
+  tax_relevant: false
+
+two:
+  sum: 1.5
+  purchase_at: 2013-03-23 11:57:18
+  user_id: 1
+  category_id: 1
+  tax_relevant: false

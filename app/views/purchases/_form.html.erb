@@ -1,0 +1,42 @@
+<%= form_for(@purchase) do |f| %>
+  <% if @purchase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@purchase.errors.count, "error") %> prohibited this purchase from being saved:</h2>
+
+      <ul>
+      <% @purchase.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sum %><br />
+    <%= f.text_field :sum %>
+  </div>
+  <div class="field">
+    <%= f.label :purchase_at %><br />
+    <%= f.datetime_select :purchase_at %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.select(:user_id, User.all.collect{ |user| [user.name, user.id] })%>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= f.select(:category_id, Category.all.collect{ |category| [category.name, category.id] })%>
+  </div>
+  <div class="field">
+    <%= f.label :tax_relevant %><br />
+    <%= f.check_box :tax_relevant %>
+  </div>
+ <div class="field">
+    <%= f.label :payment_method %><br />
+    <%= f.select :payment_method, Purchase::PAYMENT_METHOD_TYPES %>
+  </div>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

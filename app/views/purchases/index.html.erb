@@ -1,0 +1,40 @@
+<h1>Einkäufe</h1>
+
+<p><%= link_to("Alle User", users_path) %></p>
+<p><%= link_to("Alle Kategorien", categories_path) %></p>
+<p><%= link_to("Lieblingskategorie", category_path(Category.find(1))) %></p>
+</br>
+<table>
+  <tr>
+    <th>Summe </th>
+    <th>Gekauft am</th>
+    <th>User</th>
+    <th>Kategorie</th>
+    <th>Steuerrelevant</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @purchases.each do |purchase| %>
+  <tr>
+    <td><%= purchase.sum %></td>
+    <td><%= purchase.purchase_at %></td>
+    <td><%= purchase.user.name if purchase.user %></td>
+    <td><%= purchase.category.name if purchase.category %></td>
+    <td><%= purchase.tax_relevant %></td>
+    <td><%= purchase.payment_method %></td>
+    <td><%= link_to 'Show', purchase %></td>
+    <td><%= link_to 'Edit', edit_purchase_path(purchase) %></td>
+    <td><%= link_to 'Destroy', purchase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+<tr>
+    <td> <%= @purchases.map(&:sum).sum %></td>
+     <td> Gesamtsumme</td>
+    <td colspan= "6"></td>
+</table>
+
+<br />
+
+<%= link_to 'New Purchase', new_purchase_path %>

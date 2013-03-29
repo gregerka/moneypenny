@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sum:</b>
+  <%= @purchase.sum %>
+</p>
+
+<p>
+  <b>Purchase at:</b>
+  <%= @purchase.purchase_at %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @purchase.user_id %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @purchase.category_id %>
+</p>
+
+<p>
+  <b>Tax relevant:</b>
+  <%= @purchase.tax_relevant %>
+</p>
+<p>
+  <b>Payment_method:</b>
+  <%= @purchase.payment_method %>
+</p>
+
+
+<%= link_to 'Edit', edit_purchase_path(@purchase) %> |
+<%= link_to 'Back', purchases_path %>
